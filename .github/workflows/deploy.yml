@@ -19,7 +19,7 @@ jobs:
           echo "开始部署"
           echo ${{ secrets.SSH_HOST }}
       - name: SSH 命令删除旧文件
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@master 
         with:
           # 这里配置对应仓库设置的变量，就可以避免服务器配置暴露 
           host: ${{ secrets.SSH_HOST }}
