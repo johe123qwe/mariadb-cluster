@@ -33,9 +33,9 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
 
           script: |
-            echo $BDIR
-            rm -rf $BDIR/_tmp_$project_name && mkdir $BDIR/_tmp_$project_name
-            # rsync -avz --delete --exclude=.git/ ./ $BDIR/_tmp_${project_name} ${SERVER_DESTINATION}
+            echo ${{ env.BDIR }}
+            rm -rf ${{ env.BDIR }}/_tmp_${{ env.project_name }} && mkdir ${{ env.BDIR }}/_tmp_${{ env.project_name }}
+            # rsync -avz --delete --exclude=.git/ ./ ${{ env.BDIR }}/_tmp_${project_name} ${SERVER_DESTINATION}
 
       # - name: Deploy to Server # rsync推文件
       #   uses: AEnterprise/rsync-deploy@v1.0.2 # 使用别人包装好的步骤镜像
