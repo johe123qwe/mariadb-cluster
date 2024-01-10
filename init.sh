@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 
 IP=$(hostname --ip-address | cut -d" " -f1)
