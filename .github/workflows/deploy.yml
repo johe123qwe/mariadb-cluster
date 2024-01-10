@@ -17,7 +17,7 @@ jobs:
       - name: 输出变量
         run: |
           echo "开始部署"
-          echo ${{ secrets.SSH_USERNAME }}
+          echo ${{ secrets.SSH_HOST }}
       - name: SSH 命令删除旧文件
         uses: appleboy/ssh-action@master
         with:
