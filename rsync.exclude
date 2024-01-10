@@ -6,6 +6,7 @@ robots.txt
 .git/
 vendor/
 upload/
+conf/
 log/
 img/
 mails/en/
