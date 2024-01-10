@@ -9,8 +9,9 @@ on:
       - LICENSE
 
 env:
+  WROOT: /usr/share/nginx
   BDIR: /usr/share/nginx/backup
-  project_name: mariadb-cluster
+  project_name: docker_mariadb_cluster
 
 
 jobs:
@@ -61,8 +62,7 @@ jobs:
             # 生成时间戳
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             echo $TIMESTAMP
-            # rsync -avz --delete --exclude=.git/ ./ ${BDIR}/_tmp_${project_name} ${SERVER_DESTINATION}
-            rsync -h
+            rsync -POav ${{ env.WROOT }}/${{ env.docker_mariadb_cluster }}/ ${{ env.BDIR }}/${{ env.docker_mariadb_cluster }}_${TIMESTAMP}
 
       # - name: 备份 # 第三步，重启服务
       #   uses: appleboy/ssh-action@master
