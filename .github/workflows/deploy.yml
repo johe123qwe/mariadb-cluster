@@ -62,7 +62,7 @@ jobs:
             # 生成时间戳
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             echo $TIMESTAMP
-            rsync -POav ${{ env.WROOT }}/${{ env.docker_mariadb_cluster }}/ ${{ env.BDIR }}/${{ env.docker_mariadb_cluster }}_${TIMESTAMP}
+            rsync -POav ${{ env.WROOT }}/${{ env.project_name }}/ ${{ env.BDIR }}/${{ env.project_name }}_${TIMESTAMP}
 
       # - name: 备份 # 第三步，重启服务
       #   uses: appleboy/ssh-action@master
