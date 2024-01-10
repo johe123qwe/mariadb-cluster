@@ -22,7 +22,7 @@ jobs:
       - name: 输出变量
         run: |
           echo "开始部署"
-          echo ${{ vars.RSYNC_EXCLUDE_LIST }}
+          # echo ${{ vars.RSYNC_EXCLUDE_LIST }}
 
       - name: 删除和创建临时目录
         uses: appleboy/ssh-action@master 
