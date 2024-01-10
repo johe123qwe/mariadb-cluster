@@ -62,7 +62,8 @@ jobs:
             # 生成时间戳
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             echo $TIMESTAMP
-            rsync -POav ${{ env.WROOT }}/${{ env.project_name }}/ ${{ env.BDIR }}/${{ env.project_name }}_${TIMESTAMP}
+            rsync -POav --exclude-from=rsync.exclude ${{ env.WROOT }}/${{ env.project_name }}/ ${{ env.BDIR }}/${{ env.project_name }}_${TIMESTAMP}
+            rsync -POav --exclude-from=rsync.exclude ${{ env.BDIR }}/_tmp_${{ env.project_name }}/ ${{ env.WROOT }}/${{ env.project_name }}/
 
       # - name: 备份 # 第三步，重启服务
       #   uses: appleboy/ssh-action@master
